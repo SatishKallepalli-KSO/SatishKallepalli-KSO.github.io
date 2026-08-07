@@ -2,6 +2,7 @@ import {
   caseStudies,
   experience,
   impact,
+  leadership,
   lookingFor,
   profile,
   recruiterFacts,
@@ -29,14 +30,15 @@ export default function App() {
           {profile.name}
         </a>
         <nav className="nav-links" aria-label="Primary">
+          <a href="#leadership">Leadership</a>
           <a href="#portfolio">Portfolio</a>
           <a href="#systems">Systems</a>
           <a href="#experience">Experience</a>
           <a href="#hire">Why hire</a>
           <a href="#contact">Contact</a>
         </nav>
-        <a className="nav-cta" href={profile.resumePath} download>
-          Resume
+        <a className="nav-cta" href={profile.emResumePath} download>
+          EM Resume
         </a>
       </header>
 
@@ -48,22 +50,20 @@ export default function App() {
           <p className="hero-headline">{profile.headline}</p>
           <p className="hero-summary">{profile.summary}</p>
           <div className="hero-actions">
-            <a className="btn btn-primary" href="#portfolio">
-              View portfolio case studies
+            <a className="btn btn-primary" href="#leadership">
+              View EM leadership
+            </a>
+            <a className="btn btn-ghost" href="#portfolio">
+              Portfolio case studies
+            </a>
+            <a className="btn btn-ghost" href={profile.emResumePath} download>
+              EM resume
             </a>
             <a className="btn btn-ghost" href={profile.resumePath} download>
-              Download resume
+              Staff resume
             </a>
             <a className="btn btn-ghost" href={`mailto:${profile.email}`}>
               Email
-            </a>
-            <a
-              className="btn btn-ghost"
-              href={profile.linkedin}
-              target="_blank"
-              rel="noreferrer"
-            >
-              LinkedIn
             </a>
           </div>
         </section>
@@ -85,6 +85,26 @@ export default function App() {
               <p className="impact-detail">{item.detail}</p>
             </article>
           ))}
+        </section>
+
+        <section id="leadership" className="section">
+          <div className="section-head">
+            <p className="section-eyebrow">Engineering management</p>
+            <h2>Leadership experience</h2>
+            <p>
+              Open to Engineering Manager roles owning people + delivery on
+              platform, backend, or applied AI products — with a strong technical
+              bar.
+            </p>
+          </div>
+          <div className="strength-grid leadership-grid">
+            {leadership.map((item) => (
+              <article key={item.title} className="strength gap-card">
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+              </article>
+            ))}
+          </div>
         </section>
 
         <section id="portfolio" className="section">
@@ -277,8 +297,9 @@ export default function App() {
             ))}
           </ul>
           <p className="hire-note">
-            Fastest path: skim the three featured case studies, then download the
-            resume. Happy to walk architecture tradeoffs on a screen share.
+            Fastest path for EM roles: Leadership section + EM resume. For Staff
+            IC roles: featured case studies + Staff resume. Happy to walk people
+            leadership or architecture tradeoffs on a screen share.
           </p>
         </section>
 
@@ -287,8 +308,8 @@ export default function App() {
             <p className="section-eyebrow">Contact</p>
             <h2>Let’s talk</h2>
             <p>
-              Open to Staff / Senior roles in distributed systems, AI platforms,
-              and high-ownership backend engineering.
+              Open to Engineering Manager and Staff / Senior IC roles in
+              platform, backend, and applied AI product engineering.
             </p>
           </div>
           <div className="contact-panel">
@@ -300,11 +321,14 @@ export default function App() {
             <a href={profile.website}>{profile.website.replace('https://', '')}</a>
             <p className="contact-location">{profile.location}</p>
             <div className="hero-actions">
-              <a className="btn btn-primary" href={profile.resumePath} download>
-                Download resume (PDF)
+              <a className="btn btn-primary" href={profile.emResumePath} download>
+                EM resume (PDF)
               </a>
-              <a className="btn btn-ghost" href="#portfolio">
-                Back to portfolio
+              <a className="btn btn-ghost" href={profile.resumePath} download>
+                Staff resume (PDF)
+              </a>
+              <a className="btn btn-ghost" href="#leadership">
+                Leadership
               </a>
             </div>
           </div>

@@ -1,49 +1,51 @@
 export const profile = {
   name: 'Satish Kallepalli',
-  role: 'Staff Software Engineer',
-  focus: 'Distributed Systems · Production AI · Cloud-Native Backends',
+  role: 'Engineering Manager · Staff Software Engineer',
+  focus: 'Platform & AI Products · Distributed Systems · People Leadership',
   location: 'San Francisco Bay Area',
   email: 'satishkallepalli940@gmail.com',
   phone: '(510) 371-3621',
   linkedin: 'https://linkedin.com/in/satish-k-28b227a7',
   website: 'https://satishkallepalli-kso.github.io/',
   resumePath: '/Satish_Kallepalli_Resume.pdf',
-  availability: 'Open to Staff / Senior roles · US-based · Hybrid or remote',
+  emResumePath: '/Satish_Kallepalli_EM_Resume.pdf',
+  availability:
+    'Open to Engineering Manager · Staff / Senior IC roles · US-based · Hybrid or remote',
   headline:
-    'I design and ship production systems that move data, enforce entitlements, and put AI into real workflows — with the same reliability bar as large-scale Java platforms.',
+    'I build and lead platform teams that ship reliable distributed systems and production AI — owning people, delivery, and technical direction end to end.',
   summary:
-    'Staff engineer with 14+ years at Fortune 500 companies (IPG / Kinesso, Gap Inc.). Recent signature work: entitlement-safe Snowflake Cortex NLQ, an AI rate-card pipeline that cut 80%+ manual effort, and Kafka loyalty systems at millions of transactions/day. I own architecture, delivery, and production outcomes.',
+    'Engineering Manager and Staff-level leader with 14+ years at Fortune 500 companies (IPG / Kinesso, Gap Inc.). Currently manage two teams (~15 engineers) with hiring, coaching, performance, and delivery ownership. Signature wins: built the Halogen team from scratch and led vendor-to-in-house migration at 99.9% uptime; shipped entitlement-safe Snowflake Cortex NLQ and AI pipelines that cut 80%+ manual work.',
 }
 
 export const recruiterFacts = [
-  { label: 'Level', value: 'Staff / Technical Lead' },
+  { label: 'Open to', value: 'EM + Staff / Senior IC' },
+  { label: 'People scope', value: '2 teams · ~15 engineers' },
   { label: 'Years', value: '14+' },
-  { label: 'Domain', value: 'Distributed systems + Applied AI' },
+  { label: 'Domain', value: 'Platform · Backend · Applied AI' },
   { label: 'Location', value: 'SF Bay Area' },
-  { label: 'Work auth', value: 'Based in the US' },
-  { label: 'Best fit', value: 'High-ownership backend / AI platform roles' },
+  { label: 'Best fit', value: 'EM or Staff on platform / AI products' },
 ]
 
 export const impact = [
+  {
+    label: 'Team built',
+    value: 'From scratch',
+    detail: 'Halogen engineering team end-to-end',
+  },
+  {
+    label: 'Platform uptime',
+    value: '99.9%',
+    detail: 'Vendor → in-house Halogen transition',
+  },
   {
     label: 'Manual work cut',
     value: '80%+',
     detail: 'AI rate-card extraction at IPG',
   },
   {
-    label: 'Platform uptime',
-    value: '99.9%',
-    detail: 'Halogen under high concurrent load',
-  },
-  {
     label: 'Event throughput',
     value: 'Millions/day',
     detail: 'Gap loyalty on Kafka',
-  },
-  {
-    label: 'Test suite',
-    value: '1,299',
-    detail: 'Green unit tests + ArchUnit boundaries',
   },
 ]
 
@@ -313,13 +315,14 @@ export const caseStudies: CaseStudy[] = [
 
 export const experience = [
   {
-    role: 'Technical Lead / Staff Software Engineer',
+    role: 'Engineering Manager / Technical Lead / Staff Software Engineer',
     org: 'Kinesso (Interpublic Group)',
     dates: 'Feb 2022 – Present',
     points: [
-      'Own architecture and delivery for AI + investment reporting platforms used by media planners.',
-      'Lead production reliability, mentoring, hiring loops, and cross-team design decisions.',
-      'Ship entitlement-safe Cortex NLQ, AI document pipelines, and multi-tenant Snowflake reporting.',
+      'Manage two teams (~15 engineers): hiring, onboarding, 1:1 coaching, performance, and career growth.',
+      'Own delivery for Investment Console / reporting and media-ops platforms with Product, Data, Security, and Support.',
+      'Built the Halogen engineering team from scratch and led vendor-to-in-house migration while sustaining 99.9% uptime.',
+      'Shipped entitlement-safe Cortex NLQ, AI rate-card automation (80%+ manual reduction), and multi-tenant Snowflake reporting.',
     ],
   },
   {
@@ -343,7 +346,33 @@ export const experience = [
   },
 ]
 
+export const leadership = [
+  {
+    title: 'People leadership',
+    body: 'Own hiring loops, leveling, onboarding, 1:1 coaching, performance reviews, and growth plans across two product/platform teams (~15 engineers).',
+  },
+  {
+    title: 'Team from scratch',
+    body: 'Recruited and built the Halogen engineering team end-to-end — roles, bar, onboarding, and delivery rituals.',
+  },
+  {
+    title: 'Vendor → in-house',
+    body: 'Led takeover of a vendor-operated media operations product and migration to in-house ownership, directing engineers across Mexico and Colombia while protecting 99.9% uptime.',
+  },
+  {
+    title: 'Delivery + AI outcomes',
+    body: 'Partner with Product on roadmap outcomes: entitlement-safe Cortex NLQ, AI rate-card automation (80%+ manual cut), and ~40% faster deploys via CI/CD modernization.',
+  },
+]
+
 export const skills = {
+  Leadership: [
+    'Hiring & leveling',
+    'Performance & coaching',
+    'Roadmap with Product',
+    'Incident command',
+    'Cross-geo teams',
+  ],
   Languages: ['Java (14+ yrs)', 'Python', 'TypeScript', 'SQL'],
   Backend: ['Spring Boot', 'REST', 'Node.js', 'OIDC / OAuth 2.0', 'Zuul', 'Apigee'],
   Distributed: ['Kafka', 'SQS / SNS', 'Redis', 'Event-driven design', 'CompletableFuture'],
@@ -355,21 +384,21 @@ export const skills = {
 
 export const strengths = [
   {
+    title: 'Engineering management with technical depth',
+    body: 'People + delivery ownership without losing the architecture bar — credible in design reviews and still accountable for outcomes.',
+  },
+  {
     title: 'Distributed systems at customer scale',
-    body: 'Event pipelines, sync-like data movement, peak-load testing, and reliability ownership when the business depends on the path.',
+    body: 'Event pipelines, data movement, peak-load testing, and reliability ownership when the business depends on the path.',
   },
   {
     title: 'Production AI with guardrails',
     body: 'NLQ, agents, and document pipelines shipped with entitlements, audit logs, rate limits, and fail-closed behavior.',
   },
-  {
-    title: 'Staff-level ownership',
-    body: 'Architecture through production — mentoring, incident command, cross-team design, and decisions that stick.',
-  },
 ]
 
 export const lookingFor = [
-  'High ownership over backend / platform / sync / AI systems customers rely on',
-  'Roles where performance, reliability, and multi-region thinking matter',
-  'Teams that want Staff impact: design, delivery, and raising the engineering bar',
+  'Engineering Manager roles owning platform, backend, or applied AI product engineering',
+  'Staff / Senior IC roles with high ownership over systems customers rely on',
+  'Environments where people leadership, delivery, and technical direction go together',
 ]
