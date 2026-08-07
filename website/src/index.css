@@ -1,11 +1,12 @@
 :root {
-  --ink: #13262f;
-  --ink-soft: #3a4f59;
-  --paper: #eef2f1;
-  --accent: #0f6e56;
-  --accent-deep: #0a4f3d;
-  --line: rgba(19, 38, 47, 0.14);
-  --panel: rgba(255, 255, 255, 0.45);
+  --ink: #0d1520;
+  --ink-soft: #4a5563;
+  --paper: #f4f6f8;
+  --accent: #0c6b58;
+  --accent-deep: #085544;
+  --line: rgba(13, 21, 32, 0.12);
+  --panel: rgba(255, 255, 255, 0.78);
+  --panel-solid: #ffffff;
   --font-display: 'Fraunces', Georgia, serif;
   --font-body: 'IBM Plex Sans', system-ui, sans-serif;
   --max: 1120px;
@@ -52,16 +53,31 @@ a:hover {
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(900px 520px at 12% -10%, rgba(15, 110, 86, 0.18), transparent 60%),
-    radial-gradient(700px 480px at 92% 8%, rgba(213, 227, 230, 0.9), transparent 55%),
-    radial-gradient(800px 500px at 70% 100%, rgba(19, 38, 47, 0.06), transparent 50%),
-    linear-gradient(165deg, #f2f6f5 0%, #e7eeec 48%, #dce8ea 100%);
-  animation: atmosphere-drift 18s ease-in-out infinite alternate;
+    radial-gradient(980px 560px at 8% -8%, rgba(12, 107, 88, 0.14), transparent 58%),
+    radial-gradient(720px 480px at 100% 0%, rgba(28, 60, 90, 0.1), transparent 52%),
+    radial-gradient(900px 520px at 70% 110%, rgba(13, 21, 32, 0.06), transparent 55%),
+    linear-gradient(180deg, #f7f8fa 0%, #eef1f5 46%, #e8edf2 100%);
 }
 
-@keyframes atmosphere-drift {
-  from { transform: scale(1); }
-  to { transform: scale(1.04) translate3d(-1.5%, 1%, 0); }
+.atmosphere::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.45;
+  background-image:
+    linear-gradient(rgba(13, 21, 32, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(13, 21, 32, 0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at center, black 20%, transparent 75%);
+}
+
+.atmosphere::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  pointer-events: none;
 }
 
 .availability {
@@ -101,8 +117,8 @@ a:hover {
   max-width: var(--max);
   margin: 0 auto;
   padding: 0.85rem 1.5rem;
-  backdrop-filter: blur(10px);
-  background: rgba(238, 242, 241, 0.82);
+  backdrop-filter: blur(12px);
+  background: rgba(247, 248, 250, 0.86);
   border-bottom: 1px solid var(--line);
 }
 
@@ -260,9 +276,10 @@ main {
 
 .fact {
   padding: 0.85rem 0.9rem;
-  background: var(--panel);
+  background: var(--panel-solid);
   border: 1px solid var(--line);
   border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(13, 21, 32, 0.04);
 }
 
 .fact-label {
@@ -320,7 +337,7 @@ main {
 .section-alt {
   margin-inline: -1.5rem;
   padding-inline: 1.5rem;
-  background: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.55);
   border-block: 1px solid var(--line);
 }
 
@@ -357,9 +374,10 @@ main {
 
 .case {
   padding: 1.5rem 1.4rem 1.55rem;
-  background: var(--panel);
+  background: var(--panel-solid);
   border: 1px solid var(--line);
   border-radius: 18px;
+  box-shadow: 0 16px 40px rgba(13, 21, 32, 0.05);
   animation: rise 0.7s ease both;
 }
 
@@ -491,9 +509,10 @@ main {
 .more-card,
 .strength {
   padding: 1.2rem 1.15rem;
-  background: var(--panel);
+  background: var(--panel-solid);
   border: 1px solid var(--line);
   border-radius: 16px;
+  box-shadow: 0 12px 28px rgba(13, 21, 32, 0.04);
 }
 
 .more-card ul {
@@ -644,7 +663,6 @@ main {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .atmosphere,
   .availability-dot,
   .hero,
   .hero-actions,
