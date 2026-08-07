@@ -174,9 +174,9 @@ export default function App() {
             <p className="section-eyebrow">Systems</p>
             <h2>Gap platform systems</h2>
             <p>
-              Highlighted retail platform work: Loyalty, Customer Profile, and
-              Pricing &amp; Promotions — high-throughput systems used across
-              Gap brands.
+              Gap platform systems: Loyalty event streaming, Customer Profile
+              microservices migration, and Pricing &amp; Promotions —
+              production systems used across Gap brands.
             </p>
           </div>
 
