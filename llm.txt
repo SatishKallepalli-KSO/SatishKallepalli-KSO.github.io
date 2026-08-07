@@ -1,0 +1,30 @@
+# Satish Kallepalli — Staff Software Engineer
+
+Website: https://satishkallepalli-kso.github.io/
+Email: satishkallepalli940@gmail.com
+Phone: (510) 371-3621
+LinkedIn: https://linkedin.com/in/satish-k-28b227a7
+Location: San Francisco Bay Area
+Availability: Open to Staff / Senior roles (hybrid or remote, US-based)
+
+## Summary
+Staff Software Engineer with 14+ years designing and shipping distributed backends and production AI systems for Fortune 500 organizations (Interpublic Group / Kinesso, Gap Inc.). Signature work includes entitlement-safe Snowflake Cortex NLQ, AI document extraction pipelines, multi-tenant investment reporting, and Kafka loyalty systems at millions of transactions/day.
+
+## Best-fit roles
+- Staff / Senior Backend Engineer
+- Distributed Systems Engineer
+- AI Platform / Applied AI Engineer
+- High-ownership platform roles involving sync engines, streaming, reliability, multi-region systems
+
+## Featured case studies
+1. Entitlement-safe NLQ on Snowflake Cortex (Kinesso/IPG) — fail-closed SQL guardrails, rate limits, audit logging, 1,299 tests
+2. AI Rate Card Automation (Kinesso/IPG) — 80%+ manual reduction via parallel extraction + LangChain/LangGraph
+3. Gap Loyalty Event Platform — Kafka microservices, millions of transactions/day, Gatling peak validation
+
+## Additional systems
+- Investment Reporting Platform (Report Builder): multi-billion-dollar data, 100K+ row exports, zero-downtime EKS
+- Centralized OIDC/OAuth 2.0 auth service with Zuul + Apigee
+- Halogen media operations: 99.9% uptime, 40% faster deploys
+
+## Skills
+Java, Spring Boot, Kafka, Snowflake, AWS/EKS, LangChain/LangGraph/RAG, Cortex Analyst, OIDC/OAuth, Datadog, ArchUnit, Gatling

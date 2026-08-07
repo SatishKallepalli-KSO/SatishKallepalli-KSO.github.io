@@ -1,28 +1,42 @@
 import {
-  approach,
+  caseStudies,
   experience,
   impact,
+  lookingFor,
   profile,
-  projects,
+  recruiterFacts,
   skills,
+  strengths,
 } from './content'
 import './index.css'
+
+const featured = caseStudies.filter((c) => c.featured)
+const moreWork = caseStudies.filter((c) => !c.featured)
 
 export default function App() {
   return (
     <div className="site">
       <div className="atmosphere" aria-hidden="true" />
 
+      <div className="availability">
+        <span className="availability-dot" aria-hidden="true" />
+        {profile.availability}
+      </div>
+
       <header className="nav">
         <a className="nav-brand" href="#top">
           {profile.name}
         </a>
         <nav className="nav-links" aria-label="Primary">
-          <a href="#work">Work</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#systems">Systems</a>
           <a href="#experience">Experience</a>
-          <a href="#approach">Approach</a>
+          <a href="#hire">Why hire</a>
           <a href="#contact">Contact</a>
         </nav>
+        <a className="nav-cta" href={profile.resumePath} download>
+          Resume
+        </a>
       </header>
 
       <main id="top">
@@ -30,13 +44,17 @@ export default function App() {
           <p className="hero-kicker">{profile.role}</p>
           <h1 className="hero-name">{profile.name}</h1>
           <p className="hero-focus">{profile.focus}</p>
+          <p className="hero-headline">{profile.headline}</p>
           <p className="hero-summary">{profile.summary}</p>
           <div className="hero-actions">
-            <a className="btn btn-primary" href={profile.resumePath} download>
+            <a className="btn btn-primary" href="#portfolio">
+              View portfolio case studies
+            </a>
+            <a className="btn btn-ghost" href={profile.resumePath} download>
               Download resume
             </a>
             <a className="btn btn-ghost" href={`mailto:${profile.email}`}>
-              Email me
+              Email
             </a>
             <a
               className="btn btn-ghost"
@@ -49,6 +67,15 @@ export default function App() {
           </div>
         </section>
 
+        <section className="facts" aria-label="Recruiter quick facts">
+          {recruiterFacts.map((fact) => (
+            <div key={fact.label} className="fact">
+              <p className="fact-label">{fact.label}</p>
+              <p className="fact-value">{fact.value}</p>
+            </div>
+          ))}
+        </section>
+
         <section className="impact" aria-label="Selected impact">
           {impact.map((item) => (
             <article key={item.label} className="impact-item">
@@ -59,28 +86,104 @@ export default function App() {
           ))}
         </section>
 
-        <section id="work" className="section">
+        <section id="portfolio" className="section">
           <div className="section-head">
-            <h2>Selected work</h2>
+            <p className="section-eyebrow">Portfolio</p>
+            <h2>Featured case studies</h2>
             <p>
-              Production systems with measurable scale — AI platforms, data
-              movement, and high-throughput backends.
+              Recruiter-first deep dives: problem, approach, ownership, and
+              measurable outcomes from production systems — not demos.
             </p>
           </div>
-          <div className="project-list">
-            {projects.map((project) => (
-              <article key={project.title} className="project">
-                <div className="project-meta">
-                  <span className="project-company">{project.company}</span>
+
+          <div className="case-list">
+            {featured.map((study, index) => (
+              <article key={study.id} id={study.id} className="case">
+                <div className="case-top">
+                  <span className="case-index">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <div>
+                    <p className="case-company">{study.company}</p>
+                    <h3>{study.title}</h3>
+                    <p className="case-role">{study.role}</p>
+                  </div>
                 </div>
-                <h3>{project.title}</h3>
-                <p className="project-blurb">{project.blurb}</p>
-                <ul className="project-metrics">
-                  {project.metrics.map((metric) => (
-                    <li key={metric}>{metric}</li>
+
+                <div className="case-grid">
+                  <div>
+                    <h4>Problem</h4>
+                    <p>{study.problem}</p>
+                  </div>
+                  <div>
+                    <h4>Approach</h4>
+                    <p>{study.approach}</p>
+                  </div>
+                  <div>
+                    <h4>Ownership</h4>
+                    <p>{study.ownership}</p>
+                  </div>
+                  <div>
+                    <h4>Outcomes</h4>
+                    <ul>
+                      {study.outcomes.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="arch" aria-label="Architecture flow">
+                  {study.architecture.map((step, i) => (
+                    <span key={step} className="arch-step">
+                      {i > 0 && <span className="arch-arrow" aria-hidden="true">→</span>}
+                      <span className="arch-node">{step}</span>
+                    </span>
+                  ))}
+                </div>
+
+                <p className="case-tags">{study.tags.join(' · ')}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="systems" className="section section-alt">
+          <div className="section-head">
+            <p className="section-eyebrow">More systems</p>
+            <h2>Additional production work</h2>
+            <p>
+              Keep-scanable systems that reinforce distributed systems, platform,
+              and reliability signal.
+            </p>
+          </div>
+          <div className="more-grid">
+            {moreWork.map((study) => (
+              <article key={study.id} className="more-card">
+                <p className="case-company">{study.company}</p>
+                <h3>{study.title}</h3>
+                <p>{study.problem}</p>
+                <ul>
+                  {study.outcomes.slice(0, 3).map((item) => (
+                    <li key={item}>{item}</li>
                   ))}
                 </ul>
-                <p className="project-tags">{project.tags.join(' · ')}</p>
+                <p className="case-tags">{study.tags.slice(0, 5).join(' · ')}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="section">
+          <div className="section-head">
+            <p className="section-eyebrow">Strengths</p>
+            <h2>What I bring to a team</h2>
+          </div>
+          <div className="strength-grid">
+            {strengths.map((item) => (
+              <article key={item.title} className="strength">
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
               </article>
             ))}
           </div>
@@ -88,7 +191,8 @@ export default function App() {
 
         <section id="experience" className="section section-alt">
           <div className="section-head">
-            <h2>Experience</h2>
+            <p className="section-eyebrow">Experience</p>
+            <h2>Career timeline</h2>
             <p>14+ years across enterprise retail and media platforms.</p>
           </div>
           <div className="timeline">
@@ -111,8 +215,8 @@ export default function App() {
 
         <section className="section">
           <div className="section-head">
+            <p className="section-eyebrow">Stack</p>
             <h2>Skills</h2>
-            <p>Tools I use to design, ship, and operate production systems.</p>
           </div>
           <div className="skills-grid">
             {Object.entries(skills).map(([group, items]) => (
@@ -124,27 +228,29 @@ export default function App() {
           </div>
         </section>
 
-        <section id="approach" className="section section-alt">
+        <section id="hire" className="section section-alt">
           <div className="section-head">
-            <h2>How I work</h2>
-            <p>What you can expect when we build together.</p>
+            <p className="section-eyebrow">For recruiters</p>
+            <h2>Where I’m a strong fit</h2>
           </div>
-          <div className="approach-grid">
-            {approach.map((item) => (
-              <article key={item.title} className="approach-item">
-                <h3>{item.title}</h3>
-                <p>{item.body}</p>
-              </article>
+          <ul className="looking-list">
+            {lookingFor.map((item) => (
+              <li key={item}>{item}</li>
             ))}
-          </div>
+          </ul>
+          <p className="hire-note">
+            Fastest path: skim the three featured case studies, then download the
+            resume. Happy to walk architecture tradeoffs on a screen share.
+          </p>
         </section>
 
         <section id="contact" className="section contact">
           <div className="section-head">
+            <p className="section-eyebrow">Contact</p>
             <h2>Let’s talk</h2>
             <p>
               Open to Staff / Senior roles in distributed systems, AI platforms,
-              and high-ownership backend product engineering.
+              and high-ownership backend engineering.
             </p>
           </div>
           <div className="contact-panel">
@@ -153,18 +259,25 @@ export default function App() {
             <a href={profile.linkedin} target="_blank" rel="noreferrer">
               linkedin.com/in/satish-k-28b227a7
             </a>
+            <a href={profile.website}>{profile.website.replace('https://', '')}</a>
             <p className="contact-location">{profile.location}</p>
-            <a className="btn btn-primary" href={profile.resumePath} download>
-              Download resume (PDF)
-            </a>
+            <div className="hero-actions">
+              <a className="btn btn-primary" href={profile.resumePath} download>
+                Download resume (PDF)
+              </a>
+              <a className="btn btn-ghost" href="#portfolio">
+                Back to portfolio
+              </a>
+            </div>
           </div>
         </section>
       </main>
 
       <footer className="footer">
         <p>
-          © {new Date().getFullYear()} {profile.name}. Built for interviews —
-          projects reflect production work at IPG / Kinesso and Gap Inc.
+          © {new Date().getFullYear()} {profile.name}. Portfolio of production
+          systems at IPG / Kinesso and Gap Inc. ·{' '}
+          <a href="/llm.txt">llm.txt</a>
         </p>
       </footer>
     </div>

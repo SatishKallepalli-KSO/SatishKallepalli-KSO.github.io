@@ -1,16 +1,21 @@
-# Satish Kallepalli — Personal Website
+# Satish Kallepalli — Personal Portfolio
 
-Live site: **https://SatishKallepalli-KSO.github.io/**
+Live site: **https://satishkallepalli-kso.github.io/**
 
-Interview-ready portfolio with selected work, impact metrics, experience, and resume download.
+Interview-ready personal site with selected work, impact metrics, experience, and resume download.
 
-## Local development
+Deployed from: https://github.com/SatishKallepalli-KSO/SatishKallepalli-KSO.github.io
+
+## Run locally
 
 ```bash
+# from repo root
 npm install
-npm run dev
+npm run dev:portfolio
 ```
 
-## Deploy
+## Share in interviews
 
-Pushes to `main` deploy automatically via GitHub Pages (Actions).
+Use this for GitHub / portfolio / personal website:
+
+https://satishkallepalli-kso.github.io/
