@@ -5,7 +5,7 @@ Email: satishkallepalli940@gmail.com
 Phone: (510) 371-3621
 LinkedIn: https://linkedin.com/in/satish-k-28b227a7
 Location: San Francisco Bay Area
-Availability: Open to Engineering Manager and Staff / Senior IC roles (hybrid or remote, US-based)
+Availability: Open to Engineering Manager and Staff / Senior IC roles · Onsite / Hybrid or Remote · US-based (SF Bay Area)
 
 ## Summary
 Engineering Manager and Staff-level leader with 14+ years at Fortune 500 companies (Interpublic Group / Kinesso, Gap Inc.). Manages two teams (~15 engineers) with hiring, coaching, performance, and delivery ownership. Signature wins: built Halogen engineering team from scratch; led vendor-to-in-house migration at 99.9% uptime; shipped entitlement-safe Snowflake Cortex NLQ and AI pipelines cutting 80%+ manual work.
