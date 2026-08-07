@@ -11,7 +11,8 @@ import {
 import './index.css'
 
 const featured = caseStudies.filter((c) => c.featured)
-const moreWork = caseStudies.filter((c) => !c.featured)
+const gapSystems = caseStudies.filter((c) => c.systemsHighlight)
+const moreWork = caseStudies.filter((c) => !c.featured && !c.systemsHighlight)
 
 export default function App() {
   return (
@@ -150,28 +151,65 @@ export default function App() {
 
         <section id="systems" className="section section-alt">
           <div className="section-head">
-            <p className="section-eyebrow">More systems</p>
-            <h2>Additional production work</h2>
+            <p className="section-eyebrow">Systems</p>
+            <h2>Gap platform systems</h2>
             <p>
-              Keep-scanable systems that reinforce distributed systems, platform,
-              and reliability signal.
+              Highlighted retail platform work: Loyalty, Customer Profile, and
+              Pricing &amp; Promotions — high-throughput systems used across
+              Gap brands.
             </p>
           </div>
-          <div className="more-grid">
-            {moreWork.map((study) => (
-              <article key={study.id} className="more-card">
+
+          <div className="gap-banner">
+            <p className="gap-banner-label">Gap Inc. · Lead &amp; Senior Engineer</p>
+            <p className="gap-banner-text">
+              Loyalty event streaming · Profile microservices migration · Price
+              &amp; Event Management + localized promotions (LOKI)
+            </p>
+          </div>
+
+          <div className="more-grid gap-grid">
+            {gapSystems.map((study) => (
+              <article key={study.id} className="more-card gap-card">
                 <p className="case-company">{study.company}</p>
                 <h3>{study.title}</h3>
+                <p className="case-role">{study.role}</p>
                 <p>{study.problem}</p>
                 <ul>
-                  {study.outcomes.slice(0, 3).map((item) => (
+                  {study.outcomes.slice(0, 4).map((item) => (
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
-                <p className="case-tags">{study.tags.slice(0, 5).join(' · ')}</p>
+                <p className="case-tags">{study.tags.join(' · ')}</p>
               </article>
             ))}
           </div>
+
+          {moreWork.length > 0 && (
+            <>
+              <div className="section-head systems-subhead">
+                <p className="section-eyebrow">Also shipped</p>
+                <h2>Additional production systems</h2>
+              </div>
+              <div className="more-grid">
+                {moreWork.map((study) => (
+                  <article key={study.id} className="more-card">
+                    <p className="case-company">{study.company}</p>
+                    <h3>{study.title}</h3>
+                    <p>{study.problem}</p>
+                    <ul>
+                      {study.outcomes.slice(0, 3).map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                    <p className="case-tags">
+                      {study.tags.slice(0, 5).join(' · ')}
+                    </p>
+                  </article>
+                ))}
+              </div>
+            </>
+          )}
         </section>
 
         <section className="section">

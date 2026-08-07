@@ -50,6 +50,7 @@ export const impact = [
 export type CaseStudy = {
   id: string
   featured: boolean
+  systemsHighlight?: boolean
   company: string
   title: string
   role: string
@@ -136,6 +137,7 @@ export const caseStudies: CaseStudy[] = [
   {
     id: 'loyalty-kafka',
     featured: true,
+    systemsHighlight: true,
     company: 'Gap Inc.',
     title: 'Enterprise Loyalty Event Platform',
     role: 'Lead Software Engineer · Architecture & scale',
@@ -161,8 +163,72 @@ export const caseStudies: CaseStudy[] = [
     tags: ['Java', 'Spring Boot', 'Kafka', 'PCF', 'Gatling', 'Cosmos DB'],
   },
   {
+    id: 'customer-profile',
+    featured: false,
+    systemsHighlight: true,
+    company: 'Gap Inc.',
+    title: 'Customer Profile Services Migration',
+    role: 'Lead Software Engineer · Platform modernization',
+    problem:
+      'Gap’s customer profile lived in a legacy monolith that could not scale independently or evolve quickly across brands and channels.',
+    approach:
+      'Led the transformation into independent, horizontally scalable Spring Boot microservices with a zero-downtime migration that preserved data integrity across legacy and modern systems.',
+    ownership:
+      'Owned migration strategy, service boundaries, dual-write/cutover safety, and a multi-layer automation suite that raised coverage from 60% to 95%.',
+    outcomes: [
+      'Monolith → independently deployable microservices',
+      'Zero-downtime migration with data integrity preserved',
+      'Test coverage lifted from 60% to 95%',
+      'Foundation for loyalty and personalization services',
+    ],
+    architecture: [
+      'Legacy profile monolith',
+      'Strangler / cutover path',
+      'Profile microservices',
+      'Cosmos DB + Oracle',
+      'PCF + Gatling',
+    ],
+    tags: ['Java', 'Spring Boot', 'Cosmos DB', 'Oracle', 'PCF', 'Gatling'],
+  },
+  {
+    id: 'pricing-promotions',
+    featured: false,
+    systemsHighlight: true,
+    company: 'Gap Inc. (via Nisum)',
+    title: 'Pricing, Events & Localized Promotions',
+    role: 'Senior Software Engineer · Full-stack retail platforms',
+    problem:
+      'Retail pricing events and local promotions needed reliable full-stack systems to manage price changes and recommend localized offers at high daily volume.',
+    approach:
+      'Built the Price & Event Management platform on Spring Boot + MongoDB + AngularJS (PCF), and contributed to LOKI Localized Promotions — a Spring REST + MongoDB recommendation engine for millions of localized pricing recommendations daily.',
+    ownership:
+      'Led onsite/offshore delivery, automation (Selenium / Protractor), and TDD/Cucumber E2E coverage that cut regression time significantly.',
+    outcomes: [
+      'Price & Event Management platform shipped on PCF',
+      'LOKI processed millions of localized recommendations/day',
+      'Regression time cut ~60% via automation',
+      'Strong TDD + Selenium/Cucumber E2E coverage',
+    ],
+    architecture: [
+      'Pricing / event UI',
+      'Spring Boot APIs',
+      'MongoDB',
+      'LOKI recommendation engine',
+      'PCF + Jenkins',
+    ],
+    tags: [
+      'Java',
+      'Spring Boot',
+      'MongoDB',
+      'AngularJS',
+      'Selenium',
+      'Cucumber',
+    ],
+  },
+  {
     id: 'report-builder',
     featured: false,
+    systemsHighlight: false,
     company: 'Kinesso / Interpublic Group',
     title: 'Investment Reporting Platform (GATE / Report Builder)',
     role: 'Staff / Technical Lead',
@@ -190,6 +256,7 @@ export const caseStudies: CaseStudy[] = [
   {
     id: 'oidc-auth',
     featured: false,
+    systemsHighlight: false,
     company: 'Gap Inc.',
     title: 'Centralized OIDC / OAuth 2.0 Auth Service',
     role: 'Lead Software Engineer',
@@ -217,6 +284,7 @@ export const caseStudies: CaseStudy[] = [
   {
     id: 'halogen',
     featured: false,
+    systemsHighlight: false,
     company: 'Kinesso / Interpublic Group',
     title: 'Halogen Media Operations Platform',
     role: 'Technical Lead',
@@ -269,7 +337,7 @@ export const experience = [
     org: 'Gap Inc. (via Nisum Technologies)',
     dates: 'Dec 2011 – Apr 2018',
     points: [
-      'Built Price & Event Management and localized promotions platforms at retail scale.',
+      'Built Price & Event Management and LOKI localized promotions platforms at retail scale.',
       'Led onsite/offshore teams with Selenium/Cucumber automation and strong TDD practices.',
     ],
   },
